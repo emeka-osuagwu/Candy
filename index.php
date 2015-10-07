@@ -30,12 +30,15 @@ use Emeka\Potato\Database\Migrations\CreateItemTable;
 // $car->price = "emefkjerfearhjwdsj";
 // var_dump($car->save());
 
-$car = new User;
-$car->name = "emeka";
-$car->role = "emwdsj";
-$car->age = "emefkjerfearhjwdsj";
-//var_dump($car->save());
 
+// $user = new User;
+// var_dump($user->find( 1 ));
+// $user->name = "csldcdfvddf";
+// $user->age = "csldcdfvddf";
+
+
+$user = new Car;
+var_dump($user->delete(2));
 
 
 

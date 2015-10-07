@@ -16,6 +16,7 @@ return array(
     'Emeka\\Potato\\Helpers\\Create' => $baseDir . '/src/Orm/Helpers/Create.php',
     'Emeka\\Potato\\Helpers\\Delete' => $baseDir . '/src/Orm/Helpers/Delete.php',
     'Emeka\\Potato\\Helpers\\Emeka' => $baseDir . '/src/Orm/Helpers/Helper.php',
+    'Emeka\\Potato\\Helpers\\Find' => $baseDir . '/src/Orm/Helpers/Find.php',
     'Emeka\\Potato\\Helpers\\Get' => $baseDir . '/src/Orm/Helpers/Get.php',
     'Emeka\\Potato\\Helpers\\Insert' => $baseDir . '/src/Orm/Helpers/Insert.php',
     'Emeka\\Potato\\Helpers\\Save' => $baseDir . '/src/Orm/Helpers/Save.php',

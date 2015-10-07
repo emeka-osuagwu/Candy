@@ -5,6 +5,7 @@ namespace Emeka\Potato\Helpers;
 use Emeka\Potato\Helpers\Get;
 use Emeka\Potato\Base\Inflect;
 use Emeka\Potato\Helpers\Save;
+use Emeka\Potato\Helpers\Find;
 use Emeka\Potato\Helpers\Create;
 use Emeka\Potato\Base\BaseClass;
 use Emeka\Potato\Helpers\Delete;
@@ -16,6 +17,8 @@ abstract class Emeka
     protected
     $get,
     $save,
+    $find,
+    $delete,
     $inflect,
     $classname,
     $tableName,
@@ -25,6 +28,8 @@ abstract class Emeka
     {
         $this->get          = new Get;
         $this->save         = new Save;
+        $this->find         = new Find;
+        $this->delete       = new Delete;
         $this->inflect      = new Inflect;
         $this->tableName    = $this->tableName();
         $this->classname    = $this->getClassName();
@@ -92,6 +97,21 @@ abstract class Emeka
     {
         return $this->save->save( strtolower($this->tableName()), $this->properties );
     }
+
+    public function find ( $id )
+    {
+        //return $this->find->find( strtolower($this->tableName()), $id, $this->properties );
+        return $this->find->find( strtolower($this->tableName()), $id, $this->properties );
+    }
+
+    public function delete ( $id )
+    {
+        //return $this->find->find( strtolower($this->tableName()), $id, $this->properties );
+        return $this->delete->delete( $id, strtolower($this->tableName()) );
+    }
+
+
+
 
     // public static function create ( $name )
     // {

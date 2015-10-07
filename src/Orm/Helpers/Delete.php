@@ -5,12 +5,22 @@ namespace Emeka\Potato\Helpers;
 use Emeka\Potato\Base\BaseClass;
 use Emeka\Potato\Database\Connections\Connect;
 
-class Delete
+class Delete extends Connect
 {
 
-    public static function delete()
+    public function delete ( $id, $table )
     {
-        return "done delete";
+        $rowCount = 0;
+        $connection = $this->connect();
+        $sql = "DELETE FROM $table WHERE id = ?";
+        $statement = $connection->prepare($sql);
+        if ( $statement )
+        {
+            $statement->bindParam(1, $id);
+            $statement->execute();
+            $rowCount = $statement->rowCount();
+        }
+        return ( $rowCount > 0 ) ? true : false;
     }
 
 }
