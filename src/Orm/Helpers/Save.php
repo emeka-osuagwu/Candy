@@ -2,23 +2,25 @@
 
 namespace Emeka\Potato\Helpers;
 
+use Emeka\Potato\Model\Car;
 use Emeka\Potato\Base\BaseClass;
 use Emeka\Potato\Database\Connections\Connect;
 
-class Save
+class Save extends Connect
 {
 
-    public function __construct ( $name, $tableName)
-    {
-        $this->name = $name;
-        $this->tableName = $tableName;
-    }
+    protected
+    $car;
 
-    public function save( $name )
+    public function save ( $table )
     {
-        return $name;
+        $car = new Car;
+        $query ="INSERT INTO $table ( name, role, age )
+        VALUES( 'Emeka', 'Developer', '20' )";
+        return $query;
+        // return $this->fetchData( $query );
+        // return $car->fillable();
     }
-
 
 
 }

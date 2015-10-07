@@ -15,6 +15,7 @@ abstract class Emeka
 {
     protected
     $get,
+    $save,
     $inflect,
     $classname,
     $tableName;
@@ -22,6 +23,7 @@ abstract class Emeka
     public function __construct()
     {
         $this->get          = new Get;
+        $this->save         = new Save;
         $this->inflect      = new Inflect;
         $this->tableName    = $this->tableName();
         $this->classname    = $this->getClassName();
@@ -69,19 +71,27 @@ abstract class Emeka
     }
 
 
-
-
-
-    public static function save ( $name )
+    public function getTableFields()
     {
-        return new Save( $name , $name);
+        $con = new Connect;
+        $q = $con->prepare('describe '.$this->getTableName($this->className));
+        $q->execute();
+        return $q->fetchAll(PDO::FETCH_COLUMN);
     }
 
-    public static function create ( $name )
+
+
+    public  function save ()
     {
-        $create =  new Create ( $name );
-        return $create->create ( $name );
+        return $this->save->save( strtolower($this->tableName()) );
+        var_dump($this->fillable());
     }
+
+    // public static function create ( $name )
+    // {
+    //     $create =  new Create ( $name );
+    //     return $create->create ( $name );
+    // }
 
 
 }

@@ -7,11 +7,15 @@ include "vendor/autoload.php";
 use Emeka\Potato\Model\Car;
 use Emeka\Potato\Model\Todo;
 use Emeka\Potato\Model\User;
+use Emeka\Potato\Model\Bicycle;
+
+
 use Emeka\Potato\Helpers\Get;
 use Emeka\Potato\Model\Create;
 use Emeka\Potato\Helpers\Save;
-use Emeka\Potato\Model\Bicycle;
 use Emeka\Potato\Helpers\Emeka;
+use Emeka\Potato\Helpers\Insert;
+
 use Emeka\Potato\Database\Connections\Setup;
 use Emeka\Potato\Database\Connections\Driver;
 use Emeka\Potato\Database\Connections\Connect;
@@ -19,20 +23,50 @@ use Emeka\Potato\Database\Migrations\CreateItemTable;
 
 
 
-$info = [
-    "name" => "bobo",
-    "role"   => "developer",
-    "age"   => '10'
-];
+
+$car = new Car;
+$car->name = "emeka";
+$car->price = "emefkjerfearhjwdsj";
+$car->amount = "emwdsj";
+
+// var_dump($car->name);
+// var_dump($car->price);
+// var_dump($car->amount);
+//var_dump($car->fillable());
+var_dump($car->getTableFields());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// $info = [
+//     "name" => "bobo",
+//     "role"   => "developer",
+//     "age"   => '10'
+// ];
 
 
 // $user = new User;
 // var_dump($user->getAll());
 // echo $user->tabelName();
 
-$car = new Bicycle;
-var_dump($car->getAll());
-echo $car->tableName();
+// $car = new Bicycle;
+// var_dump($car->getAll());
+// echo $car->tableName();
 
 
 
@@ -45,9 +79,6 @@ echo $car->tableName();
 
 // $get = new Get ( $info );
 // var_dump($get->getAll( $info ));
-
-
-
 
 // $connect = new Connect;
 // var_dump($connect->connect());
