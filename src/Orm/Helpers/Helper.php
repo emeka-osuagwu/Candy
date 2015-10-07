@@ -18,7 +18,8 @@ abstract class Emeka
     $save,
     $inflect,
     $classname,
-    $tableName;
+    $tableName,
+    $properties = [];
 
     public function __construct()
     {
@@ -28,6 +29,23 @@ abstract class Emeka
         $this->tableName    = $this->tableName();
         $this->classname    = $this->getClassName();
     }
+
+    /*
+    |
+    */
+    public function __get ( $property )
+    {
+        return $this->properties[$property];
+    }
+
+    /*
+    |
+    */
+    public function __set ( $property, $value )
+    {
+       $this->properties[$property] = $value;
+    }
+
 
     /*
     | getClass returns class called
@@ -70,21 +88,9 @@ abstract class Emeka
         return $this->get->getAll($this->tableName());
     }
 
-
-    public function getTableFields()
-    {
-        $con = new Connect;
-        $q = $con->prepare('describe '.$this->getTableName($this->className));
-        $q->execute();
-        return $q->fetchAll(PDO::FETCH_COLUMN);
-    }
-
-
-
     public  function save ()
     {
-        return $this->save->save( strtolower($this->tableName()) );
-        var_dump($this->fillable());
+        return $this->save->save( strtolower($this->tableName()), $this->properties );
     }
 
     // public static function create ( $name )
@@ -92,6 +98,5 @@ abstract class Emeka
     //     $create =  new Create ( $name );
     //     return $create->create ( $name );
     // }
-
 
 }

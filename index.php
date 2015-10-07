@@ -24,18 +24,17 @@ use Emeka\Potato\Database\Migrations\CreateItemTable;
 
 
 
-$car = new Car;
+// $car = new Car;
+// $car->name = "emeka";
+// $car->ammount = "emwdsj";
+// $car->price = "emefkjerfearhjwdsj";
+// var_dump($car->save());
+
+$car = new User;
 $car->name = "emeka";
-$car->price = "emefkjerfearhjwdsj";
-$car->amount = "emwdsj";
-
-// var_dump($car->name);
-// var_dump($car->price);
-// var_dump($car->amount);
-//var_dump($car->fillable());
-var_dump($car->getTableFields());
-
-
+$car->role = "emwdsj";
+$car->age = "emefkjerfearhjwdsj";
+//var_dump($car->save());
 
 
 
