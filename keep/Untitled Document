@@ -1,0 +1,156 @@
+<?php
+ini_set('display_errors', 1);
+require_once('vendor/autoload.php');
+
+// use Verem\Persistence\User;
+// use Verem\persistence\Base\Inflect;
+// use Verem\persistence\Base\Model;
+
+
+
+
+// function GetCallingMethodName(){
+//     $e = new Exception();
+//     $trace = $e->getTrace();
+//     $last_call = $trace[1];
+//     print_r($last_call);
+// }
+
+// function firstCall($a, $b){
+//     theCall($a, $b);
+// }
+
+// function theCall($a, $b){
+//     GetCallingMethodName();
+// }
+
+// firstCall('lucia', 'php');
+
+abstract class ROOT {
+    public static function getClass() {
+        return get_called_class();
+    }
+}
+class Tree extends ROOT {
+}
+
+$Tree = new Tree();
+echo $Tree->getClass();
+
+
+/* This function will return the name string of the function that called $function. To return the
+    caller of your function, either call get_caller(), or get_caller(__FUNCTION__).
+*/
+function get_caller($function = NULL, $use_stack = NULL) {
+    if ( is_array($use_stack) ) {
+        // If a function stack has been provided, used that.
+        $stack = $use_stack;
+    } else {
+        // Otherwise create a fresh one.
+        $stack = debug_backtrace();
+        echo "\nPrintout of Function Stack: \n\n";
+        print_r($stack);
+        echo "\n";
+    }
+
+    if ($function == NULL) {
+        // We need $function to be a function name to retrieve its caller. If it is omitted, then
+        // we need to first find what function called get_caller(), and substitute that as the
+        // default $function. Remember that invoking get_caller() recursively will add another
+        // instance of it to the function stack, so tell get_caller() to use the current stack.
+        $function = get_caller(__FUNCTION__, $stack);
+    }
+
+    if ( is_string($function) && $function != "" ) {
+        // If we are given a function name as a string, go through the function stack and find
+        // it's caller.
+        for ($i = 0; $i < count($stack); $i++) {
+            $curr_function = $stack[$i];
+            // Make sure that a caller exists, a function being called within the main script
+            // won't have a caller.
+            if ( $curr_function["function"] == $function && ($i + 1) < count($stack) ) {
+                return $stack[$i + 1]["function"];
+            }
+        }
+    }
+
+    // At this stage, no caller has been found, bummer.
+    return "";
+}
+
+// TEST CASE
+
+function woman() {
+    $caller = get_caller(); // No need for get_caller(__FUNCTION__) here
+    if ($caller != "") {
+        echo $caller , "() called " , __FUNCTION__ , "(). No surprises there.\n";
+    } else {
+        echo "no-one called ", __FUNCTION__, "()\n";
+    }
+}
+
+function man() {
+    // Call the woman.
+    woman();
+}
+
+// Don't keep him waiting
+man();
+
+// Try this to see what happens when there is no caller (function called from main script)
+woman();
+
+
+
+// $user = new User;
+// $model = new Model;
+// var_dump($model->getClass());
+
+
+
+// $test = new Inflect;
+// var_dump($test->pluralize('emeka'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//var_dump($Inflect->pluralize('rfvedfvdh'));
+
+
+// $user = new User();
+// $user->username = "Terry";
+// $user->password = "pass";
+// $user->email = "ter@terry.dom";
+// $user->save();
+// User::destroy(37);
+
+
+
+
+
+
+
+
+
+
+
+
+
