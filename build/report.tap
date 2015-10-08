@@ -1,1 +1,4 @@
 TAP version 13
+ok 1 - Test\TestFind::test_find_accepts_id
+ok 2 - Test\TestFind::test_find_return_array
+1..2

@@ -1,0 +1,22 @@
+
+
+Code Coverage Report:     
+  2015-10-08 14:09:48     
+                          
+ Summary:                 
+  Classes: 37.50% (6/16)  
+  Methods: 51.43% (18/35) 
+  Lines:   40.72% (79/194)
+
+\Emeka\Potato\Base::Inflect
+  Methods:   0.00% ( 0/ 1)   Lines:  75.00% (  9/ 12)
+\Emeka\Potato\Database\Connections::Connect
+  Methods:  66.67% ( 2/ 3)   Lines:  57.89% ( 11/ 19)
+\Emeka\Potato\Database\Connections::Driver
+  Methods: 100.00% ( 3/ 3)   Lines: 100.00% ( 16/ 16)
+\Emeka\Potato\Database\Connections::Setup
+  Methods: 100.00% ( 7/ 7)   Lines: 100.00% ( 18/ 18)
+\Emeka\Potato\Helpers::Find
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% ( 13/ 13)
+\Emeka\Potato\Helpers::Model
+  Methods:  50.00% ( 5/10)   Lines:  66.67% ( 12/ 18)

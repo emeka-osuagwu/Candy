@@ -13,13 +13,22 @@ use Emeka\Potato\Model\Bicycle;
 use Emeka\Potato\Helpers\Get;
 use Emeka\Potato\Model\Create;
 use Emeka\Potato\Helpers\Save;
-use Emeka\Potato\Helpers\Emeka;
+use Emeka\Potato\Helpers\Model;
 use Emeka\Potato\Helpers\Insert;
 
 use Emeka\Potato\Database\Connections\Setup;
 use Emeka\Potato\Database\Connections\Driver;
 use Emeka\Potato\Database\Connections\Connect;
 use Emeka\Potato\Database\Migrations\CreateItemTable;
+
+
+
+
+
+
+
+
+
 
 
 
@@ -31,10 +40,14 @@ use Emeka\Potato\Database\Migrations\CreateItemTable;
 // var_dump($car->save());
 
 
+//$user = new User;
+//var_dump($user->getAll());
+//var_dump(gettype($user->getAll()));
+// $user->name = "csldcdfvddf";
+// $user->age = "csldcdfvddf";
+
 $user = new User;
-var_dump($user->find( 1 ));
-$user->name = "csldcdfvddf";
-$user->age = "csldcdfvddf";
+var_dump($user->find(5));
 
 
 // $user = new Car;

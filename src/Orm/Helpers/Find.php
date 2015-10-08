@@ -29,19 +29,6 @@ class Find extends Connect
         return $class;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         //return $table ."". $id;
         // $query = 'SELECT * FROM ' . $table . ' WHERE id = ' .$id ;
         // $connection = $this->connect();
