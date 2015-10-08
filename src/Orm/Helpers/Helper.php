@@ -100,23 +100,13 @@ abstract class Emeka
 
     public function find ( $id )
     {
-        //return $this->find->find( strtolower($this->tableName()), $id, $this->properties );
         return $this->find->find( strtolower($this->tableName()), $id, $this->properties );
     }
 
     public function delete ( $id )
     {
-        //return $this->find->find( strtolower($this->tableName()), $id, $this->properties );
         return $this->delete->delete( $id, strtolower($this->tableName()) );
     }
 
-
-
-
-    // public static function create ( $name )
-    // {
-    //     $create =  new Create ( $name );
-    //     return $create->create ( $name );
-    // }
 
 }

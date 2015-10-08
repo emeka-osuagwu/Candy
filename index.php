@@ -31,14 +31,14 @@ use Emeka\Potato\Database\Migrations\CreateItemTable;
 // var_dump($car->save());
 
 
-// $user = new User;
-// var_dump($user->find( 1 ));
-// $user->name = "csldcdfvddf";
-// $user->age = "csldcdfvddf";
+$user = new User;
+var_dump($user->find( 1 ));
+$user->name = "csldcdfvddf";
+$user->age = "csldcdfvddf";
 
 
-$user = new Car;
-var_dump($user->delete(2));
+// $user = new Car;
+// var_dump($user->delete(2));
 
 
 
