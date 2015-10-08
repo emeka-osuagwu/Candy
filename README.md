@@ -1,5 +1,10 @@
 # Candy
+[![Build Status](https://travis-ci.org/andela-eosuagwu/Candy.svg)](https://travis-ci.org/andela-eosuagwu/Candy)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/andela-eosuagwu/Candy/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/andela-eosuagwu/Candy/?branch=master)
+
+
 #### Candy is lightweight ORM based in php
+
 
 #Testing
  The phpunit framework for testing is used to perform
