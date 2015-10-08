@@ -12,7 +12,7 @@ use Emeka\Potato\Helpers\Delete;
 use Emeka\Potato\Database\Connections\Connect;
 
 
-abstract class Emeka
+abstract class Model
 {
     protected
     $get,
