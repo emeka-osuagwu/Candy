@@ -13,6 +13,6 @@ class CreateException extends Exception
 
     public function isNotArray()
     {
-        return ' Aceept only array';
+        return 'Aceept only array';
     }
 }
