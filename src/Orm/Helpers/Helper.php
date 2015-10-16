@@ -14,7 +14,7 @@ use Emeka\Potato\Database\Connections\Connect;
 
 abstract class Model
 {
-    protected
+    private
     $get,
     $save,
     $find,
@@ -31,7 +31,6 @@ abstract class Model
         $this->find         = new Find;
         $this->delete       = new Delete;
         $this->inflect      = new Inflect;
-        $this->tableName    = $this->tableName();
         $this->classname    = $this->getClassName();
     }
 
@@ -93,20 +92,21 @@ abstract class Model
         return $this->get->getAll($this->tableName());
     }
 
+    public function find ( $id )
+    {
+        return $this->find->find( $this->tableName(), $id, $this->properties );
+    }
+
     public  function save ()
     {
         return $this->save->save( strtolower($this->tableName()), $this->properties );
     }
 
-    public function find ( $id )
-    {
-        return $this->find->find( strtolower($this->tableName()), $id, $this->properties );
-    }
 
-    public function delete ( $id )
-    {
-        return $this->delete->delete( $id, strtolower($this->tableName()) );
-    }
+    // public function delete ( $id )
+    // {
+    //     return $this->delete->delete( $id, strtolower($this->tableName()) );
+    // }
 
 
 }

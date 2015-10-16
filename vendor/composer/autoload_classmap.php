@@ -6,13 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Emeka\\Base\\Exceptions\\CreateException' => $baseDir . '/src/Orm/Base/Exceptions/CreateException.php',
-    'Emeka\\Potato\\Base\\BaseClass' => $baseDir . '/src/Orm/Base/Interface.php',
+    'Emeka\\Base\\Exceptions\\InvalidNameException' => $baseDir . '/src/Orm/Base/Exceptions/CreateException.php',
     'Emeka\\Potato\\Base\\Inflect' => $baseDir . '/src/Orm/Base/Inflect.php',
     'Emeka\\Potato\\Database\\Connections\\Connect' => $baseDir . '/src/Orm/Database/Connections/Connect.php',
-    'Emeka\\Potato\\Database\\Connections\\Driver' => $baseDir . '/src/Orm/Database/Connections/DatabaseDriver.php',
-    'Emeka\\Potato\\Database\\Connections\\Setup' => $baseDir . '/src/Orm/Database/Connections/Setup.php',
-    'Emeka\\Potato\\Database\\Migrations\\CreateItemTable' => $baseDir . '/src/Orm/Database/Migrations/CreateItemTable.php',
     'Emeka\\Potato\\Helpers\\Create' => $baseDir . '/src/Orm/Helpers/Create.php',
     'Emeka\\Potato\\Helpers\\Delete' => $baseDir . '/src/Orm/Helpers/Delete.php',
     'Emeka\\Potato\\Helpers\\Find' => $baseDir . '/src/Orm/Helpers/Find.php',

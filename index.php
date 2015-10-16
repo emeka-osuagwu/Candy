@@ -46,8 +46,8 @@ use Emeka\Potato\Database\Migrations\CreateItemTable;
 // $user->name = "csldcdfvddf";
 // $user->age = "csldcdfvddf";
 
-$user = new User;
-var_dump($user->find(5));
+// $user = new User;
+// $user->getAll();
 
 
 // $user = new Car;
@@ -95,9 +95,8 @@ var_dump($user->find(5));
 // $get = new Get ( $info );
 // var_dump($get->getAll( $info ));
 
-// $connect = new Connect;
-// var_dump($connect->connect());
-
+$connect = new Connect;
+var_dump($connect->connect());
 // list($a, list($b, $c)) = array(1, array(2, 3));
 // var_dump($a, $b, $c);
 

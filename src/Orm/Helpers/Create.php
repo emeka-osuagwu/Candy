@@ -3,7 +3,7 @@
 namespace Emeka\Potato\Helpers;
 
 use Emeka\Potato\Base\BaseClass;
-use Emeka\Base\Exceptions\CreateException;
+use Emeka\Base\Exceptions\InvalidNameException;
 use Emeka\Potato\Database\Connections\Connect;
 
 class Create extends Connect
@@ -16,24 +16,24 @@ class Create extends Connect
         {
             if ( $name == null || $role == null || $age == null )
             {
-                throw new CreateException();
+                throw new InvalidNameException("some variable are not set for the create function.");
             }
         }
-        catch (CreateException $e)
+        catch (InvalidNameException $e)
         {
-            return $e->unSetVariable();
+            return $e
         }
 
         try
         {
             if ( ! is_array( $object ) )
             {
-                throw new CreateException;
+                throw new InvalidNameException("some variable are not set for the create function.");
             }
         }
-        catch (CreateException $e)
+        catch (InvalidNameException $e)
         {
-            return $e->isNotArray();
+            return $e;
         }
         return $object;
     }

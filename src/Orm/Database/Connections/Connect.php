@@ -3,29 +3,35 @@
 namespace Emeka\Potato\Database\Connections;
 
 use PDO;
+use Dotenv\Dotenv;
 use Emeka\Potato\Database\Connections\Driver;
 
 /**
 *
 */
-class Connect extends Driver
+class Connect 
 {
     protected $getDriver;
-
     protected $db_connection;
 
-    protected function getDriver()
+    public function __construct ()
     {
-        return $this->useDriver();
+        $dotenv = new Dotenv($_SERVER['DOCUMENT_ROOT']);
+        $dotenv->load();
+        $this->db_host      = getenv('db_host');
+        $this->db_name      = getenv('db_name');
+        $this->db_user      = getenv('db_user');
+        $this->database     = getenv('database');
+        $this->db_password  = getenv('db_password');
     }
 
     public function connect()
     {
-        $db_host        =  $this->getDriver()["db_host"];
-        $db_name        =  $this->getDriver()["db_name"];
-        $db_user        =  $this->getDriver()["db_user"];
-        $database       =  $this->getDriver()["database"];
-        $db_password    =  $this->getDriver()["db_password"];
+        $db_user        =  $this->db_user;
+        $db_host        =  $this->db_host;
+        $db_name        =  $this->db_name;
+        $database       =  $this->database;
+        $db_password    =  $this->db_password;
 
         $db_connection = new PDO
         (

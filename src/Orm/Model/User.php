@@ -6,4 +6,5 @@ use Emeka\Potato\Helpers\Model;
 
 class User extends Model
 {
+
 }
