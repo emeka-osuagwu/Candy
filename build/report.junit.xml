@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites>
-  <testsuite name="Test\TestFind" file="/home/emeka/Project/php/lesson/ORM/tests/TestFind.php" tests="2" assertions="2" failures="0" errors="0" time="0.536446">
-    <testcase name="test_find_accepts_id" class="Test\TestFind" file="/home/emeka/Project/php/lesson/ORM/tests/TestFind.php" line="12" assertions="1" time="0.242371"/>
-    <testcase name="test_find_return_array" class="Test\TestFind" file="/home/emeka/Project/php/lesson/ORM/tests/TestFind.php" line="19" assertions="1" time="0.294075"/>
-  </testsuite>
-</testsuites>

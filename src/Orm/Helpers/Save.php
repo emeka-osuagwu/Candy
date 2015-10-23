@@ -2,51 +2,103 @@
 
 namespace Emeka\Potato\Helpers;
 
-use Emeka\Potato\Model\Car;
-use Emeka\Potato\Base\BaseClass;
 use Emeka\Potato\Database\Connections\Connect;
+use Emeka\Base\Exceptions\ModelNotFoundException;
 
-class Save extends Connect
+class Save
 {
 
-    protected
-    $car;
+    public function connect()
+    {
+        $connection = new Connect;
+        return $connection = $connection->connect();
+    }
+    
+    public function executeInsertQuery ( $properties, $table, $primaryKey )
+    {
+        $total_properties_count = count($properties);
+        $x = 0;
 
-    public function save ( $table, $properties )
-     {
-
-        $sql = "INSERT INTO $table (";
-        $insertColumns = "";
-        $insertValues = "";
-        $count = 0;
-
-        foreach ($properties as $key => $value)
-        {
-            if($key === 'id')
-            {
+        $sql = "INSERT INTO " . $table . " (";
+        $sqlSetColumns = "";
+        $sqlSetValues = "";
+        foreach($properties as $key => $value){
+            $x++;
+            if($key == $primaryKey) {
                 continue;
             }
-            ++$count;
-            $insertColumns .= $key;
-            $insertValues .= ":".$key;
-            if( $count < count( $properties ) )
-            {
-                $insertValues .= ", ";
-                $insertColumns .= ", ";
+            $sqlSetColumns .= $key;
+            $sqlSetValues .= ":" . $key;
+            if($x != $total_properties_count) {
+                $sqlSetColumns .= ", ";
+                $sqlSetValues .= ", ";
             }
         }
 
-        $sql .= $insertColumns .") VALUES(". $insertValues .")";
-        $connection = $this->connect();
-        $statement = $connection->prepare($sql);
+        $sql .= $sqlSetColumns . " ) VALUES ( " . $sqlSetValues . " )";
 
-        foreach ($properties as $key => $value)
+        try 
         {
-            $statement->bindValue(":".$key, $value);
+            $connection = $this->connect();
+            $stmt = $connection->prepare($sql);
+            foreach($properties as $key => $value)
+            {
+                $stmt->bindValue(':' . $key, $value);
+            }
+            return $stmt->execute();
+        } 
+        catch(PDOException $e) 
+        {
+            return $e->getMessage();
         }
-
-        $statement->execute();
-        return $sql;
     }
 
+    public function executeUpdateQuery ( $properties, $table, $primaryKey )
+    {
+        $total_properties_count = count($properties);
+        $x = 0;
+        $sql = "UPDATE " . $table . " SET ";
+        $sqlSetColumns = "";
+        $valueArray = [];
+
+        foreach($properties as $key => $value){
+            $x++;
+            if($key == $primaryKey) {
+                $valueArray[":" . $key] = $value;
+                continue;
+            }
+
+            if(isset($value)) 
+            {
+                $sqlSetColumns .= $key . " = :" . $key;
+                $valueArray[":" . $key] = $value;
+            }
+
+            if($x != $total_properties_count) 
+            {
+                if(isset($value)) 
+                {
+                    $sqlSetColumns .= ", ";
+                }
+            }
+        }
+
+        $sql .= $sqlSetColumns . " WHERE " . $primaryKey . " = :" . $primaryKey;
+
+        try 
+        {
+            $connection = $this->connect();
+            $update = $connection->prepare($sql);
+            $update = $update->execute($valueArray);
+            if ( $update == false ) 
+            {
+                throw new ModelNotFoundException('The Model is not found');
+            }
+            return $update;
+        } 
+        catch(ModelNotFoundException $e) 
+        {
+            return $e->getMessage();
+        }
+    }
 }

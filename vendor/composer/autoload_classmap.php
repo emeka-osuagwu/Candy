@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Emeka\\Base\\Exceptions\\InvalidNameException' => $baseDir . '/src/Orm/Base/Exceptions/CreateException.php',
+    'Emeka\\Base\\Exceptions\\ModelNotFoundException' => $baseDir . '/src/Orm/Base/Exceptions/CreateException.php',
     'Emeka\\Potato\\Base\\Inflect' => $baseDir . '/src/Orm/Base/Inflect.php',
     'Emeka\\Potato\\Database\\Connections\\Connect' => $baseDir . '/src/Orm/Database/Connections/Connect.php',
     'Emeka\\Potato\\Helpers\\Create' => $baseDir . '/src/Orm/Helpers/Create.php',
@@ -16,6 +16,7 @@ return array(
     'Emeka\\Potato\\Helpers\\Insert' => $baseDir . '/src/Orm/Helpers/Insert.php',
     'Emeka\\Potato\\Helpers\\Model' => $baseDir . '/src/Orm/Helpers/Helper.php',
     'Emeka\\Potato\\Helpers\\Save' => $baseDir . '/src/Orm/Helpers/Save.php',
+    'Emeka\\Potato\\Helpers\\Where' => $baseDir . '/src/Orm/Helpers/Where.php',
     'Emeka\\Potato\\Model\\Bicycle' => $baseDir . '/src/Orm/Model/Bicycle.php',
     'Emeka\\Potato\\Model\\Car' => $baseDir . '/src/Orm/Model/Car.php',
     'Emeka\\Potato\\Model\\User' => $baseDir . '/src/Orm/Model/User.php',

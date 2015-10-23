@@ -24,10 +24,8 @@ class Find
         {
             $statement->bindParam(1, $id);
             $statement->execute();
-            $result = $statement->fetch(PDO::FETCH_LAZY);
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
         }
-        $class->id = $result['id'];
-        $class->name = $result['name'];
-        echo json_encode($class);
+        return json_encode($result);
     }
 }
