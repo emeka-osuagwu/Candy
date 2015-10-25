@@ -30,7 +30,7 @@ $connect = new Connect;
 
 
 $user = new User;
-//echo $user::all();
+echo $user::all();
 //echo $user::find(1);
 //echo $user::where("username", "ben");
 //var_dump($user::delete(10));
