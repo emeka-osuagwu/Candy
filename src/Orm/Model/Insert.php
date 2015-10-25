@@ -1,9 +1,9 @@
 <?php
 
-namespace Emeka\Potato\Helpers;
+namespace Emeka\Candy\Helpers;
 
-use Emeka\Potato\Base\BaseClass;
-use Emeka\Potato\Database\Connections\Connect;
+use Emeka\Candy\Base\BaseClass;
+use Emeka\Candy\Database\Connections\Connect;
 
 class Insert
 {

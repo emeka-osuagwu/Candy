@@ -1,6 +1,6 @@
 <?php
 
-namespace Emeka\Potato\Base;
+namespace Emeka\Candy\Base;
 
 class Splitter
 {

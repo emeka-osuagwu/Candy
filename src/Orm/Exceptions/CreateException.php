@@ -1,6 +1,6 @@
 <?php
 
-namespace Emeka\Base\Exceptions;
+namespace Emeka\Candy\Exceptions;
 
 use Exception;
 

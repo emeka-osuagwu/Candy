@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Emeka\\Potato\\": "src/"
+            "Emeka\\Candy\\": "src/"
         },
         "classmap":["src/"]
     }

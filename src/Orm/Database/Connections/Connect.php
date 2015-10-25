@@ -1,10 +1,10 @@
 <?php
 
-namespace Emeka\Potato\Database\Connections;
+namespace Emeka\Candy\Database\Connections;
 
 use PDO;
 use Dotenv\Dotenv;
-use Emeka\Potato\Database\Connections\Driver;
+use Emeka\Candy\Database\Connections\Driver;
 
 class Connect 
 {

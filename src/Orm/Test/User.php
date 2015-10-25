@@ -1,8 +1,8 @@
 <?php
 
-namespace Emeka\Potato\Test;
+namespace Emeka\Candy\Test;
 
-use Emeka\Potato\Model\BaseModel;
+use Emeka\Candy\Model\BaseModel;
 
 class User extends BaseModel
 {

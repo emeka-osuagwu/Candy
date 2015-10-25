@@ -4,19 +4,19 @@ ERROR_REPORTING(E_ALL);
 ini_set('display_errors', 1);
 include "vendor/autoload.php";
 
-use Emeka\Potato\Test\User;
-use Emeka\Potato\Helpers\Save;
-use Emeka\Potato\Model\Create;
-use Emeka\Potato\BaseModel\Get;
-use Emeka\Potato\Helpers\Insert;
-use Emeka\Potato\Model\BaseModel;
+use Emeka\Candy\Test\User;
+use Emeka\Candy\Helpers\Save;
+use Emeka\Candy\Model\Create;
+use Emeka\Candy\BaseModel\Get;
+use Emeka\Candy\Helpers\Insert;
+use Emeka\Candy\Model\BaseModel;
 
-use Emeka\Potato\Database\Connections\Setup;
-use Emeka\Potato\Database\Connections\Driver;
-use Emeka\Potato\Database\Connections\Connect;
-use Emeka\Potato\Database\Migrations\CreateItemTable;
+use Emeka\Candy\Database\Connections\Setup;
+use Emeka\Candy\Database\Connections\Driver;
+use Emeka\Candy\Database\Connections\Connect;
+use Emeka\Candy\Database\Migrations\CreateItemTable;
 
-use Emeka\Potato\Base\Splitter;
+use Emeka\Candy\Base\Splitter;
 
 $connect = new Connect;
 // var_dump($connect::databaseDriver());
@@ -32,8 +32,8 @@ $connect = new Connect;
 $user = new User;
 //echo $user::all();
 //echo $user::find(1);
-//echo $user::where("username", "bobo");
-var_dump($user::delete(10));
+//echo $user::where("username", "ben");
+//var_dump($user::delete(10));
 
 // $user->id = 3;
 // $user->username = "ben";

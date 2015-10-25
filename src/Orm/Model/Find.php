@@ -1,10 +1,10 @@
 <?php
 
-namespace Emeka\Potato\Model;
+namespace Emeka\Candy\Model;
 
 use PDO;
-use Emeka\Potato\Base\BaseClass;
-use Emeka\Potato\Database\Connections\Connect;
+use Emeka\Candy\Base\BaseClass;
+use Emeka\Candy\Database\Connections\Connect;
 
 class Find extends Connect
 {

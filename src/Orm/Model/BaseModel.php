@@ -1,20 +1,20 @@
 <?php
 
-namespace Emeka\Potato\Model;
+namespace Emeka\Candy\Model;
 
 use PDO;
-use Emeka\Potato\Model\All;
-use Emeka\Potato\Model\Save;
-use Emeka\Potato\Model\Find;
-use Emeka\Potato\Model\Where;
-use Emeka\Potato\Model\Delete;
-use Emeka\Potato\Model\Create;
+use Emeka\Candy\Model\All;
+use Emeka\Candy\Model\Save;
+use Emeka\Candy\Model\Find;
+use Emeka\Candy\Model\Where;
+use Emeka\Candy\Model\Delete;
+use Emeka\Candy\Model\Create;
 
 use Emeka\Fetcher\Base;
-use Emeka\Potato\Base\Inflect;
-use Emeka\Potato\Base\Splitter;
-use Emeka\Potato\Base\BaseClass;
-use Emeka\Potato\Database\Connections\Connect;
+use Emeka\Candy\Base\Inflect;
+use Emeka\Candy\Base\Splitter;
+use Emeka\Candy\Base\BaseClass;
+use Emeka\Candy\Database\Connections\Connect;
 
 abstract class BaseModel
 {
