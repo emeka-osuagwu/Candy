@@ -12,46 +12,47 @@
  employed to make the application robust
 
  Run this on bash to execute the tests
- ```````bash
+ 
+```bash
  /vendor/bin/phpunit
-`````````
+```
 
 #Install
 
 - To install this package, PHP 5.5+ and Composer are required
 
-````bash
+```bash
 composer require emeka/candy
-``````
+```
 
 #Usage
 
 - Save a model in the database
 
-````````
+```php
 $user = new User();
 $user->username = "john";
 $user->password = "password";
 $user->email = "john@doe.co";
 $user->save();
-`````````
+```
 - Find a model
 
-``````
+```php
 $user = User::find($id);
-``````
+```
 - Update a record
 
-``````
+```php
 $user = User::find($id);
 $user->password = "s†røngerPaSswoRd";
 $user->save();
-``````
+```
 - Delete a record -- returns a boolean
 
-````````
+```php
 $result = User::destroy($id):
-````````
+```
 
 
 ## Change log
