@@ -31,6 +31,7 @@ class Connect
         self::$db_password  = getenv('db_password');
     }
 
+
     private static function connect()
     {
         self::databaseDriver();
