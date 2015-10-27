@@ -19,13 +19,17 @@ class Connect
 
     protected static function databaseDriver ()
     {
-        self::$dotenv   = new Dotenv($_SERVER['DOCUMENT_ROOT']);
-        self::$dotenv->load();
-        self::$db_host      = getenv('db_host');
-        self::$db_name      = getenv('db_name');
-        self::$db_user      = getenv('db_user');
-        self::$database     = getenv('database');
-        self::$db_password  = getenv('db_password');
+        
+        if ( ! getenv('APP_ENV') ) 
+        {
+            self::$dotenv   = new Dotenv($_SERVER['DOCUMENT_ROOT']);
+            self::$dotenv->load();
+            self::$db_host      = getenv('db_host');
+            self::$db_name      = getenv('db_name');
+            self::$db_user      = getenv('db_user');
+            self::$database     = getenv('database');
+            self::$db_password  = getenv('db_password');
+        }
     }
 
     private static function connect()
