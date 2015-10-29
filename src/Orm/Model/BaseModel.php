@@ -3,17 +3,14 @@
 namespace Emeka\Candy\Model;
 
 use PDO;
-use Emeka\Candy\Model\All;
-use Emeka\Candy\Model\Save;
-use Emeka\Candy\Model\Find;
-use Emeka\Candy\Model\Where;
-use Emeka\Candy\Model\Delete;
-use Emeka\Candy\Model\Create;
-
 use Emeka\Fetcher\Base;
 use Emeka\Candy\Base\Inflect;
 use Emeka\Candy\Base\Splitter;
-use Emeka\Candy\Base\BaseClass;
+use Emeka\Candy\Model\GetEntity;
+use Emeka\Candy\Model\SaveEntity;
+use Emeka\Candy\Model\FindEntity;
+use Emeka\Candy\Model\WhereEntity;
+use Emeka\Candy\Model\DeleteEntity;
 use Emeka\Candy\Database\Connections\Connect;
 
 abstract class BaseModel
@@ -36,7 +33,7 @@ abstract class BaseModel
      *
      * @return mixed
     */
-    public function __get($key)
+    public function __get( $key )
     {
         self::$properties[$key];
     }
@@ -74,7 +71,7 @@ abstract class BaseModel
     */
     public static function getTableName()
     {
-        $splitter = new Splitter(self::getClassName());
+        $splitter = new Splitter ( self::getClassName() );
         $tableName = $splitter->format();
         $tableName = Inflect::pluralize($tableName);
         return $tableName;
@@ -99,7 +96,7 @@ abstract class BaseModel
     */
     public static function all()
     {
-        return All::all( self::getTableName() );
+        return GetEntity::all( self::getTableName() );
     }
 
 
@@ -109,7 +106,7 @@ abstract class BaseModel
     */
     public static function find ( $id )
     {
-        return Find::find( $id, self::getTableName() );
+        return FindEntity::find( $id, self::getTableName() );
     }
 
     /**
@@ -118,7 +115,7 @@ abstract class BaseModel
     */
     public static function where ( $column, $value )
     {
-        return Where::where( $column, $value, self::getTableName() );
+        return WhereEntity::where( $column, $value, self::getTableName() );
     }
 
     /**
@@ -127,7 +124,7 @@ abstract class BaseModel
     */
     public static function delete ( $id )
     {
-        return Delete::delete( $id, self::getTableName() );
+        return DeleteEntity::delete( $id, self::getTableName() );
     }
 
     /**
@@ -138,22 +135,11 @@ abstract class BaseModel
     {
         if (  ! self::exists() ) 
         {
-           return  Save::executeInsertQuery( self::$properties, self::getTableName(), 'id');
+           return  SaveEntity::executeInsertQuery( self::$properties, self::getTableName(), 'id');
         }
         else
         {
-           return  Save::executeUpdateQuery( self::$properties, self::getTableName(), 'id');
+           return  SaveEntity::executeUpdateQuery( self::$properties, self::getTableName(), 'id');
         }
     }
-
-
-
-
-
-
-
-
-
-
-    
 }
