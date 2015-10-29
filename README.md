@@ -54,7 +54,7 @@ Find all entities that match the given conditions and return records from the da
 $value = "username"
 $field = "user's table"
 
-$user = User::where($value, $field)
+echo $user = User::where($value, $field)
 ```
 
 #Save
