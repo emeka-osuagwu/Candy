@@ -20,7 +20,7 @@ use Emeka\Candy\Base\Splitter;
 
 $connect = new Connect;
 // var_dump($connect::databaseDriver());
-// var_dump($connect::connect());
+//var_dump($connect::connect());
 // var_dump($connect::$db_name);
 // var_dump($connect::$db_user);
 // var_dump($connect::$database);

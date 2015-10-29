@@ -3,7 +3,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/andela-eosuagwu/Candy/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/andela-eosuagwu/Candy/?branch=master)
 
 
-#### Candy is lightweight ORM based in php
+#### Candy is a lightweight ORM built with php
 
 
 #Testing
@@ -30,7 +30,7 @@ composer require emeka/candy
 - Save a model in the database
 
 ```php
-$user = new User();
+$user = new User::all();
 $user->username = "john";
 $user->password = "password";
 $user->email = "john@doe.co";
