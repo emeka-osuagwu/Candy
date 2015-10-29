@@ -25,7 +25,29 @@
 composer require emeka/candy
 ```
 
-#Usage
+#Basic CRUD Operations
+All querie requires a Mapper instance. Mappers are responsible for finding and updating or delete individual entities.
+
+##Queries With Candy
+
+#all()
+- Finds and return all entities from a field in the databaes.
+
+```
+$users = User::all();
+echo $users;
+```
+
+#find($id)
+- Finds and return single entity from the databaes.
+
+```
+$users = User::find($id);
+echo $users;
+```
+
+
+
 
 - Save a model in the database
 
@@ -36,7 +58,7 @@ $user->password = "password";
 $user->email = "john@doe.co";
 $user->save();
 ```
-- Find a model
+- Get  
 
 ```php
 $user = User::find($id);
