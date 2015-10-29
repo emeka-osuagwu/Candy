@@ -31,7 +31,7 @@ All querie requires a Mapper instance. Mappers are responsible for finding and u
 ##Queries With Candy
 
 #all()
-- Finds and return all entities from a field in the databaes.
+- Finds and return all entities from a field in the database.
 
 ```
 $users = User::all();
@@ -39,7 +39,7 @@ echo $users;
 ```
 
 #find($id)
-- Finds and return single entity from the databaes.
+- Finds and return single entity from the database.
 
 ```
 $users = User::find($id);
@@ -47,7 +47,15 @@ echo $users;
 ```
 
 
+#where($value, $field)
+Find all entities that match the given conditions and return records from the database.
 
+```
+$value = "username"
+$field = "user's table"
+
+$user = User::where($value, $field)
+```
 
 - Save a model in the database
 
