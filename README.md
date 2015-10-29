@@ -33,7 +33,7 @@ All querie requires a Mapper instance. Mappers are responsible for finding and u
 #all()
 - Finds and return all entities from a field in the database.
 
-```
+```php
 $users = User::all();
 echo $users;
 ```
@@ -41,7 +41,7 @@ echo $users;
 #find($id)
 - Finds and return single entity from the database.
 
-```
+```php
 $users = User::find($id);
 echo $users;
 ```
@@ -50,40 +50,45 @@ echo $users;
 #where($value, $field)
 Find all entities that match the given conditions and return records from the database.
 
-```
+```php
 $value = "username"
 $field = "user's table"
 
 $user = User::where($value, $field)
 ```
 
-- Save a model in the database
+#Save
+- The save method is a convenience method that handles both inserting and updating an entity object. Save will call either insert or update, depending on whether the Entity has as an `ID` property `isset`.
+
+####Insert
 
 ```php
-$user = new User::all();
-$user->username = "john";
-$user->password = "password";
-$user->email = "john@doe.co";
-$user->save();
+$user = new User;
+$user->email     = "john@doe.co";
+$user->username  = "john";
+$user->password  = "password";
+//without the ID property the Save method will insert a new record in to  the database 
+$user::save();
 ```
-- Get  
+
+####Update
+```php
+$user = new User;
+$user->id        = 1;
+$user->email     = "new_john@doe.co";
+$user->username  = "new_john";
+$user->password  = "new_password";
+//with the ID property the Save method will update the USERS table where ID = 1. 
+$user::save();
+```
+
+#Delete
+- Delete a from the database.
 
 ```php
-$user = User::find($id);
+$user = User::destroy($id):
+$user returns a boolean
 ```
-- Update a record
-
-```php
-$user = User::find($id);
-$user->password = "s†røngerPaSswoRd";
-$user->save();
-```
-- Delete a record -- returns a boolean
-
-```php
-$result = User::destroy($id):
-```
-
 
 ## Change log
 Please check out [CHANGELOG](CHANGELOG.md) file for information on what has changed recently.
