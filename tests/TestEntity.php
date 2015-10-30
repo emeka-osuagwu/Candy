@@ -11,6 +11,7 @@ use Emeka\Candy\Model\WhereEntity;
 
 class TestEntity extends PHPUnit_Framework_TestCase
 {
+	
 	public function testGetEntity()
 	{
 	    $dbConnMocked 	= Mockery::mock('PDO');
@@ -24,28 +25,40 @@ class TestEntity extends PHPUnit_Framework_TestCase
 	    $this->assertJson(GetEntity::all('users', $dbConnMocked));	      
 	}
 
-
 	public function testWhereEntity()
 	{
 	    $dbConnMocked 	= Mockery::mock('PDO');
 	    $statement 		= Mockery::mock('\PDOStatement');
 
-	    $dbConnMocked->shouldReceive('prepare')->with('SELECT * FROM users WHERE id = emeka')->andReturn($statement);
+	    $dbConnMocked->shouldReceive('prepare')->with("SELECT * FROM users WHERE username = 'emeka'")->andReturn($statement);
 	    $statement->shouldReceive('execute');
 	    $statement->shouldReceive('fetchAll')->with(PDO::FETCH_ASSOC);
 
-	    $this->assertJson(WhereEntity::where('username', 'emeka', $dbConnMocked));	      
+	    $this->assertJson(WhereEntity::where('username', 'emeka', 'users', $dbConnMocked));	      
 	}
 
-	// public function testFindEntity()
-	// {
-	//     $dbConnMocked 	= Mockery::mock('PDO');
-	//     $statement 		= Mockery::mock('\PDOStatement');
+	public function testFindEntity()
+	{
+	    $dbConnMocked 	= Mockery::mock('PDO');
+	    $statement 		= Mockery::mock('\PDOStatement');
 
-	//     $dbConnMocked->shouldReceive('prepare')->with('SELECT * FROM users WHERE id = 3')->andReturn($statement);
-	//     $statement->shouldReceive('execute');
-	//     $statement->shouldReceive('fetchAll')->with(PDO::FETCH_ASSOC);
+	    $dbConnMocked->shouldReceive('prepare')->with('SELECT * FROM users WHERE id = 3')->andReturn($statement);
+	    $statement->shouldReceive('execute');
+	    $statement->shouldReceive('fetchAll')->with(PDO::FETCH_ASSOC);
 
-	//     $this->assertJson(FindEntity::find( '1', 'users', $dbConnMocked));	      
-	// }
+	    $this->assertJson(FindEntity::find( 3, 'users', $dbConnMocked));	      
+	}
+	
+	public function testSaveEntity()
+	{
+	    $dbConnMocked 	= Mockery::mock('PDO');
+	    $statement 		= Mockery::mock('\PDOStatement');
+
+	    $dbConnMocked->shouldReceive('prepare')->with('SELECT * FROM users WHERE id = 3')->andReturn($statement);
+	    $statement->shouldReceive('execute');
+	    $statement->shouldReceive('fetchAll')->with(PDO::FETCH_ASSOC);
+
+	    $this->assertJson(FindEntity::find( 3, 'users', $dbConnMocked));	      
+	}
+	
 }

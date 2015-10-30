@@ -8,7 +8,7 @@ use Emeka\Candy\Database\Connections\Connect;
 class SaveEntity extends Connect
 {
 
-    public static function executeInsertQuery ( $properties, $table, $primaryKey )
+    public static function executeInsertQuery ( $properties, $table, $primaryKey, $connection = null)
     {
         $total_properties_count = count($properties);
         $x = 0;
@@ -37,13 +37,19 @@ class SaveEntity extends Connect
 
         try 
         {
-            $query =  self::getDataInstance();
-            $query = $query->prepare($sql);
+            
+            if ( is_null($connection) ) 
+            {
+                $connection = Connect::getDataInstance();
+            }
+
+            
+            $result = $connection->prepare($sql);
             foreach($properties as $key => $value)
             {
-              $query->bindValue(':' . $key, $value);
+              $result->bindValue(':' . $key, $value);
             }
-            return $query->execute();
+            return $result->execute();
         } 
         catch(PDOException $e) 
         {

@@ -18,7 +18,9 @@ class GetEntity implements JsonConverter
         }
         
         $result = $connection->prepare($sql);
+
         $result->execute();
+        
         return self::toJson($result->fetchAll(PDO::FETCH_ASSOC));
     }
 

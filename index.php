@@ -10,14 +10,14 @@ use Emeka\Candy\Model\BaseModel;
 $user = new User;
 //echo $user::all();
 //echo $user::find(3);
-echo $user::where("username", "emeka");
+//echo $user::where("username", "emeka");
 //var_dump($user::delete(1));
 
 
 // $user->id = 13;
-// $user->username = "emeka osuagwu";
-// $user->password = "pass";
-// var_dump($user = User::save());
+$user->username = "emeka osuagwu ola";
+$user->password = "pass";
+var_dump($user = User::save());
 
 
 
