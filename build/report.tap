@@ -1,3 +1,4 @@
 TAP version 13
-ok 1 - Test\TestGetEntity::testGetEntity
-1..1
+ok 1 - Test\TestEntity::testGetEntity
+not ok 2 - Error: Test\TestEntity::testWhereEntity
+1..2

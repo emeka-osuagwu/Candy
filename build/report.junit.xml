@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Test\TestGetEntity" file="/home/emeka/Documents/.Project/php/package/Candy/tests/TestGetEntity.php" tests="1" assertions="1" failures="0" errors="0" time="0.143010">
-    <testcase name="testGetEntity" class="Test\TestGetEntity" file="/home/emeka/Documents/.Project/php/package/Candy/tests/TestGetEntity.php" line="13" assertions="1" time="0.143010"/>
+  <testsuite name="Test\TestEntity" file="/home/emeka/Documents/.Project/php/package/Candy/tests/TestEntity.php" tests="2" assertions="1" failures="0" errors="1" time="0.149812">
+    <testcase name="testGetEntity" class="Test\TestEntity" file="/home/emeka/Documents/.Project/php/package/Candy/tests/TestEntity.php" line="14" assertions="1" time="0.129804"/>
+    <testcase name="testWhereEntity" class="Test\TestEntity" file="/home/emeka/Documents/.Project/php/package/Candy/tests/TestEntity.php" line="28" assertions="0" time="0.020008">
+      <error type="PHPUnit_Framework_ExceptionWrapper">Test\TestEntity::testWhereEntity
+InvalidArgumentException: Dotenv: Environment file .env not found or not readable. Create file with your environment settings at /.env
+
+/home/emeka/Documents/.Project/php/package/Candy/vendor/vlucas/phpdotenv/src/Loader.php:78
+/home/emeka/Documents/.Project/php/package/Candy/vendor/vlucas/phpdotenv/src/Loader.php:51
+/home/emeka/Documents/.Project/php/package/Candy/vendor/vlucas/phpdotenv/src/Dotenv.php:41
+/home/emeka/Documents/.Project/php/package/Candy/src/Orm/Database/Connections/Connect.php:25
+/home/emeka/Documents/.Project/php/package/Candy/src/Orm/Database/Connections/Connect.php:37
+/home/emeka/Documents/.Project/php/package/Candy/src/Orm/Database/Connections/Connect.php:60
+/home/emeka/Documents/.Project/php/package/Candy/src/Orm/Model/WhereEntity.php:17
+/home/emeka/Documents/.Project/php/package/Candy/tests/TestEntity.php:37
+</error>
+    </testcase>
   </testsuite>
 </testsuites>

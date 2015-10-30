@@ -8,7 +8,6 @@ use Emeka\Candy\Database\Connections\Connect;
 
 class GetEntity implements JsonConverter
 {
-
     public static function all ( $table, $connection = null)
     {
         $sql    = "SELECT * FROM $table";

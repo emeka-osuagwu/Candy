@@ -8,11 +8,16 @@ use Emeka\Candy\Database\Connections\Connect;
 
 class WhereEntity extends Connect implements JsonConverter
 {
-    public static function where ( $column, $value, $table )
+    public static function where ( $column, $value, $table, $connections = null )
     {
         $sql    = "SELECT * FROM $table WHERE $column = '$value'";
-        $query  =  self::getDataInstance();
-        $result = $query->prepare($sql);
+        
+        if ( is_null($connections) ) 
+        {
+            $connections = Connect::getDataInstance();
+        }
+
+        $result = $connections->prepare($sql);
         
         $result->execute();
         

@@ -1,12 +1,16 @@
 
 
-Code Coverage Report:    
-  2015-10-30 09:35:23    
-                         
- Summary:                
-  Classes:  9.09% (1/11) 
-  Methods:  3.45% (1/29) 
-  Lines:    2.83% (7/247)
+Code Coverage Report:     
+  2015-10-30 10:18:29     
+                          
+ Summary:                 
+  Classes:  9.09% (1/11)  
+  Methods:  3.45% (1/29)  
+  Lines:    7.63% (18/236)
 
+\Emeka\Candy\Database\Connections::Connect
+  Methods:   0.00% ( 0/ 3)   Lines:  29.17% (  7/ 24)
 \Emeka\Candy\Model::GetEntity
   Methods:  50.00% ( 1/ 2)   Lines:  77.78% (  7/  9)
+\Emeka\Candy\Model::WhereEntity
+  Methods:   0.00% ( 0/ 2)   Lines:  44.44% (  4/  9)
