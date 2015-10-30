@@ -57,11 +57,15 @@ class SaveEntity extends Connect
         }
     }
 
-    public static function executeUpdateQuery ( $properties, $table, $primaryKey )
+    public static function executeUpdateQuery ( $properties, $table, $primaryKey, $connection = null)
     {
         try 
         {     
-            $query     =  self::getDataInstance();
+            if ( is_null($connection) ) 
+            {
+                $connection = Connect::getDataInstance();
+            }
+
             $count     =  0;
             $sql       =  "UPDATE ".$table." SET ";
 
@@ -81,7 +85,7 @@ class SaveEntity extends Connect
             }
             
             $sql .= " WHERE " .$primaryKey ." = ?";
-            $statement = $query->prepare($sql);
+            $statement = $connection->prepare($sql);
             $indexCount = 0;
             
             foreach ($properties as $key => $value) 

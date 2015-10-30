@@ -2,4 +2,6 @@ TAP version 13
 ok 1 - Test\TestEntity::testGetEntity
 ok 2 - Test\TestEntity::testWhereEntity
 ok 3 - Test\TestEntity::testFindEntity
-1..3
+ok 4 - Test\TestEntity::testSaveEntity
+ok 5 - Test\TestEntity::testDeleteEntity
+1..5

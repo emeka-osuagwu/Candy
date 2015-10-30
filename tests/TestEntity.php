@@ -7,7 +7,9 @@ use Mockery;
 use PHPUnit_Framework_TestCase;
 use Emeka\Candy\Model\GetEntity;
 use Emeka\Candy\Model\FindEntity;
+use Emeka\Candy\Model\SaveEntity;
 use Emeka\Candy\Model\WhereEntity;
+use Emeka\Candy\Model\DeleteEntity;
 
 class TestEntity extends PHPUnit_Framework_TestCase
 {
@@ -48,17 +50,23 @@ class TestEntity extends PHPUnit_Framework_TestCase
 
 	    $this->assertJson(FindEntity::find( 3, 'users', $dbConnMocked));	      
 	}
-	
+
 	public function testSaveEntity()
 	{
-	    $dbConnMocked 	= Mockery::mock('PDO');
-	    $statement 		= Mockery::mock('\PDOStatement');
-
-	    $dbConnMocked->shouldReceive('prepare')->with('SELECT * FROM users WHERE id = 3')->andReturn($statement);
-	    $statement->shouldReceive('execute');
-	    $statement->shouldReceive('fetchAll')->with(PDO::FETCH_ASSOC);
-
-	    $this->assertJson(FindEntity::find( 3, 'users', $dbConnMocked));	      
+		$mock = Mockery::mock('PDO');
+		$mock->shouldReceive('save')
+			->with()
+			->once()
+			->andReturn(true);
 	}
-	
+
+	public function testDeleteEntity()
+	{
+		$mock = Mockery::mock('PDO');
+		$mock->shouldReceive('delete')
+			->with()
+			->once()
+			->andReturn(true);
+	}
+
 }

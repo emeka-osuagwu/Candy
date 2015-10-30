@@ -14,9 +14,9 @@ $user = new User;
 //var_dump($user::delete(1));
 
 
-// $user->id = 13;
+$user->id = 19;
 $user->username = "emeka osuagwu ola";
-$user->password = "pass";
+$user->password = "passlfgjbkfgh";
 var_dump($user = User::save());
 
 
