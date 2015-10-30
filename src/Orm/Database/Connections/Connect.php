@@ -32,7 +32,7 @@ class Connect
     }
 
 
-    public static function connect()
+    protected static function connect()
     {
         self::databaseDriver();
         $options = 
@@ -45,9 +45,7 @@ class Connect
 
         try 
         {
-            var_dump($dsn);
             return new PDO($dsn, self::$db_user, self::$db_password, $options);
-
         }
         catch(PDOException $e) 
         {
@@ -56,7 +54,7 @@ class Connect
         }   
     }
 
-    protected static function getDataInstance()
+    public static function getDataInstance()
     {
         
         if (  ! self::connect()  ) 

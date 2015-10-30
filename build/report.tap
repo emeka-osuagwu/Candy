@@ -1,0 +1,3 @@
+TAP version 13
+ok 1 - Test\TestGetEntity::testGetEntity
+1..1

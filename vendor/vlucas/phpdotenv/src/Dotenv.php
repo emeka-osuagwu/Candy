@@ -26,12 +26,13 @@ class Dotenv
     public function __construct($path, $file = '.env')
     {
         $this->filePath = $this->getFilePath($path, $file);
+        $this->loader = new Loader($this->filePath, $immutable = true);
     }
 
     /**
      * Load `.env` file in given directory.
      *
-     * @return void
+     * @return array
      */
     public function load()
     {
@@ -43,7 +44,7 @@ class Dotenv
     /**
      * Load `.env` file in given directory.
      *
-     * @return void
+     * @return array
      */
     public function overload()
     {
@@ -53,7 +54,7 @@ class Dotenv
     }
 
     /**
-     * Returns the full path to the file ensuring that it's readable.
+     * Returns the full path to the file.
      *
      * @param string $path
      * @param string $file
@@ -72,9 +73,9 @@ class Dotenv
     }
 
     /**
-     * Required ensures that the specified variables exist, and returns a new Validation object.
+     * Required ensures that the specified variables exist, and returns a new Validator object.
      *
-     * @param mixed $variable
+     * @param string|string[] $variable
      *
      * @return \Dotenv\Validator
      */

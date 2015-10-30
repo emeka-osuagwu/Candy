@@ -8,9 +8,9 @@ use Emeka\Candy\Test\User;
 use Emeka\Candy\Model\BaseModel;
 
 $user = new User;
-//echo $user::all();
+echo $user::all();
 //echo $user::find(1000);
-echo $user::where("username", "emeka");
+//echo $user::where("username", "emeka");
 //var_dump($user::delete(1));
 
 

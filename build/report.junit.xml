@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Test\TestGetEntity" file="/home/emeka/Documents/.Project/php/package/Candy/tests/TestGetEntity.php" tests="1" assertions="1" failures="0" errors="0" time="0.143010">
+    <testcase name="testGetEntity" class="Test\TestGetEntity" file="/home/emeka/Documents/.Project/php/package/Candy/tests/TestGetEntity.php" line="13" assertions="1" time="0.143010"/>
+  </testsuite>
+</testsuites>
