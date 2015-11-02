@@ -3,3 +3,4 @@
 /keep
 index.php
 composer.lock
+/build
