@@ -43,12 +43,16 @@ class TestEntity extends PHPUnit_Framework_TestCase
 	{
 	    $dbConnMocked 	= Mockery::mock('PDO');
 	    $statement 		= Mockery::mock('\PDOStatement');
+	    
+	    $stub = ['id' => 1, 'username' => 'emeka', 'password' => 'bobo'];
 
-	    $dbConnMocked->shouldReceive('prepare')->with('SELECT * FROM users WHERE id = 3')->andReturn($statement);
+	    $dbConnMocked->shouldReceive('prepare')->with('SELECT * FROM users WHERE id = 1')->andReturn($statement);
 	    $statement->shouldReceive('execute');
-	    $statement->shouldReceive('fetchAll')->with(PDO::FETCH_ASSOC);
+	    $statement->shouldReceive('fetchAll')->with(PDO::FETCH_ASSOC)->andReturn($stub);
 
-	    $this->assertEquals('null', FindEntity::find( 3, 'users', $dbConnMocked));	      
+	    
+	    
+	    $this->assertEquals(json_encode($stub), FindEntity::find( 1, 'users', $dbConnMocked));	      
 	}
 
 	public function testSaveEntity()

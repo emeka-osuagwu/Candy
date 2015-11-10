@@ -17,8 +17,9 @@ $user = new User;
 $user->id = 19;
 $user->username = "emeka osuagwu ola";
 $user->password = "passlfgjbkfgh";
-var_dump($user = User::save());
+//var_dump($user = User::save());
 
+echo $user::find(6);
 
 
 
