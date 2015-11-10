@@ -38,7 +38,7 @@ class TestEntity extends PHPUnit_Framework_TestCase
 
 	    $this->assertJson(WhereEntity::where('username', 'emeka', 'users', $dbConnMocked));	      
 	}
-/*
+
 	public function testFindEntity()
 	{
 	    $dbConnMocked 	= Mockery::mock('PDO');
@@ -49,7 +49,7 @@ class TestEntity extends PHPUnit_Framework_TestCase
 	    $statement->shouldReceive('fetchAll')->with(PDO::FETCH_ASSOC);
 
 	    $this->assertEquals(1, FindEntity::find( 3, 'users', $dbConnMocked));	      
-	}*/
+	}
 
 	public function testSaveEntity()
 	{
