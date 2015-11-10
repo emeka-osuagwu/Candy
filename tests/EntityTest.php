@@ -48,7 +48,7 @@ class TestEntity extends PHPUnit_Framework_TestCase
 	    $statement->shouldReceive('execute');
 	    $statement->shouldReceive('fetchAll')->with(PDO::FETCH_ASSOC);
 
-	    $this->assertEquals(1, FindEntity::find( 3, 'users', $dbConnMocked));	      
+	    $this->assertEquals('null', FindEntity::find( 3, 'users', $dbConnMocked));	      
 	}
 
 	public function testSaveEntity()
