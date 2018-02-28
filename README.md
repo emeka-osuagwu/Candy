@@ -1,6 +1,7 @@
 # Candy
 [![Build Status](https://travis-ci.org/andela-eosuagwu/Candy.svg)](https://travis-ci.org/andela-eosuagwu/Candy)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/andela-eosuagwu/Candy/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/andela-eosuagwu/Candy/?branch=master)
+[![Open Source Helpers](https://www.codetriage.com/emeka-osuagwu/candy/badges/users.svg)](https://www.codetriage.com/emeka-osuagwu/candy)
 
 
 #### Candy is a lightweight ORM built with php
